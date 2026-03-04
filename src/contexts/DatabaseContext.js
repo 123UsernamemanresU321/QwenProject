@@ -1,4 +1,5 @@
-import React, { createContext, useContext } from 'react';
+/** @jsxImportSource react */
+import { createContext, useContext } from 'react';
 
 const DatabaseContext = createContext(null);
 
