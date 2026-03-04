@@ -5,16 +5,15 @@ import { ZoomControls } from './ZoomControls';
 
 // Initialize PDF.js worker
 const pdfjsLib = await import('pdfjs-dist');
-const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker.js?url');
+pdfjsLib.GlobalWorkerOptions.workerSrc = 
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker.default;
-
-export const PDFViewerContainer = ({ 
-  pdfUrl, 
-  currentPage, 
-  onPageChange, 
-  totalPages, 
-  onTotalPagesChange 
+export const PDFViewerContainer = ({
+  pdfUrl,
+  currentPage,
+  onPageChange,
+  totalPages,
+  onTotalPagesChange
 }) => {
   const [scale, setScale] = useState(1.0);
   const [isLoading, setIsLoading] = useState(true);
